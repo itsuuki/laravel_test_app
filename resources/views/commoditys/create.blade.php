@@ -5,8 +5,9 @@
                 投稿の新規作成
             </h1>
 
-            <form method="POST" action="{{ route('commoditys.store') }}">
-                @csrf
+            <form method="POST" action="{{ route('commoditys.store') }}" enctype="multipart/form-data">
+                <!-- @csrf -->
+                {{ csrf_field() }}
 
                 <fieldset class="mb-4">
                     <div class="form-group">
@@ -44,6 +45,7 @@
                             </div>
                         @endif
                     </div>
+                    <input type="file" name="image">
 
                     <div class="mt-5">
                         <a class="btn btn-secondary" href="{{ route('top') }}">
