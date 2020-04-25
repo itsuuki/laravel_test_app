@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', 'commoditysController@index')->name('top');
-Route::resource('commoditys', 'commoditysController', ['only' => ['create', 'store']]);
+Route::get('/', function () {
+    return view('welcome');
+});
+// Route::get('/', 'commoditysController@index')->name('top');
+// Route::resource('commoditys', 'commoditysController', ['only' => ['create', 'store']]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
