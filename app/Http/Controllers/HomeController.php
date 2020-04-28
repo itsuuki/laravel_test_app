@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\commodity;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $commoditys = commodity::orderBy('created_at', 'desc')->get();
+        return view('commoditys.index', ['commoditys' => $commoditys]);
+        // return view('commoditys/index');
     }
 }

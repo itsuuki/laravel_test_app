@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 // Route::get('/', 'commoditysController@index')->name('top');
-// Route::resource('commoditys', 'commoditysController', ['only' => ['create', 'store']]);
+Route::resource('commoditys', 'commoditysController', ['only' => ['create', 'store']]);
 
 Auth::routes();
 

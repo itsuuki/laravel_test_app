@@ -11,11 +11,6 @@ class commoditysController extends Controller
     public function index(Request $request)
     {
         $commoditys = commodity::orderBy('created_at', 'desc')->get();
-        // $is_image = false;
-        // if (storage::disk('local')->exists('public/profile_images')) {
-        //     $is_image = true;
-        // }
-
         return view('commoditys.index', ['commoditys' => $commoditys]);
     }
     public function create()
@@ -37,10 +32,10 @@ class commoditysController extends Controller
         // $value->image = $request->input('image');
         // $value = $request->image->store('image');
 
-        $value->image = $request->input('local/image');
-
-        // $value->save();
-        return redirect()->route('top');
+        $value->image = $request->file('image')->store('images');
+ 
+        $value->save();
+        return view('home');
     }
 }
 // protected $guarded = array('id');
@@ -54,3 +49,6 @@ class commoditysController extends Controller
 // {
 //     return $this->id . ': ' . $this->name .':' . $this->price;
 // }
+
+
+// ->route('/commoditys/index');

@@ -5,7 +5,7 @@
                 投稿の新規作成
             </h1>
 
-            <form method="POST" action="{{ route('commoditys.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('commoditys.store')}}" enctype="multipart/form-data">
                 <!-- @csrf -->
                 {{ csrf_field() }}
 
@@ -48,7 +48,7 @@
                     <input type="file" name="image">
 
                     <div class="mt-5">
-                        <a class="btn btn-secondary" href="{{ route('top') }}">
+                        <a class="btn btn-secondary" href="/index">
                             キャンセル
                         </a>
 
